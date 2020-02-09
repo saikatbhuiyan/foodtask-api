@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Market Place
+{% endblock title %}
+
+{% block content %}
+  <form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Sign In</button>
+  </form>
+{% endblock %}
+

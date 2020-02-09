@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+  Market Place
+{% endblock title %}
+
+{% block content %}
+<p>Home Page</p>
+<a href="{% url 'restaurant-sign-out' %}">Log Out</a>
+{% endblock %}
+
