@@ -20,3 +20,14 @@ class RestaurantForm(forms.ModelForm):
 
 
 
+class UserFormForEdit(forms.ModelForm):
+    email = forms.CharField(max_length=100, required=True)
+
+    class Meta:
+        model = User
+        fields = ("username", "email")
+
+class MealForm(forms.ModelForm):
+    class Meta:
+        model = models.Meal
+        exclude = ("restaurant",)

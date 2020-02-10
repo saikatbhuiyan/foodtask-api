@@ -1,47 +1,158 @@
 {% load staticfiles %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>    
-    {% block title %}
-    
-    {% endblock title %}
-  </title>
-  <link rel='shortcut icon' href="{% static 'img/favicon.ico' %}">
-  <link rel='stylesheet' href="{% static 'css/bootstrap.min.css' %}">
-  <link rel='stylesheet' href="{% static 'css/app.css' %}">
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <title>{% block title %}{% endblock %}</title>
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
+
+<style>
+  body {
+    padding-top: 50px;
+    background-color: #EDF2F5;
+    overflow: auto;
+  }
+  
+  .bg-blue {
+    background-color: #3F3F63;
+  }
+  
+  .bg-gray {
+    background-color: #88A1B2;
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
+  .btn-pink {
+    color: white;
+    background-color: #EE5462;
+  }
+  
+  .btn-pink:hover,
+  .btn-pink:focus {
+    color: white;
+    background-color: #DA4F5D;
+  }
+  
+  /* SIDE BAR */
+  .sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0;
+    background-color: #3F3F63;
+    overflow: auto;
+  }
+  
+  /* SIDE BAR - HEADER */
+  .sidebar > div:first-child {
+    padding: 30px 10px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #383957;
+  }
+  
+  .sidebar > div:first-child > h4 {
+    color: #e0deeb;
+  }
+  
+  .sidebar > div:first-child > h5 {
+    color: #b6b4c1;
+  }
+  
+  /* SIDE BAR - LIST */
+  .sidebar .list-group {
+    padding: 0;
+    background-color: #3F3F63;
+  }
+  
+  .sidebar .list-group > span {
+    color: #b6b4c1;
+    display: block;
+    margin-top: 20px;
+    padding: 20px 30px;
+    font-size: 16px;
+    font-weight: 300;
+  }
+  
+  .sidebar .list-group .list-group-item,
+  .sidebar .list-group .list-group-item:focus {
+    background-color: #3F3F63;
+    color: #b6b4c1;
+    border: 0;
+    padding-left: 60px;
+    padding-right: 30px;
+  }
+  
+  .sidebar .list-group .list-group-item.active,
+  .sidebar .list-group .list-group-item:hover {
+    background-color: #383957;
+    color: #e0deeb;
+  }
+  
+  .sidebar .list-group .list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  .sidebar .list-group .list-group-item .badge,
+  .sidebar .list-group .list-group-item.active .badge {
+    background-color: #EE5462;
+    color: #e0deeb;
+  }
+  
+  /* SIDE BAR - LOGOUT */
+  .sidebar > div:last-child {
+    padding: 30px;
+  }
+  
+  .sidebar > div:last-child .btn {
+    width: 100%;
+  }
+  
+  /* CONTENT */
+  .content {
+    padding: 0 40px;
+  }
+  
+  .content .panel {
+    border: none;
+  }
+  
+  .table > thead > tr > th,
+  .table > thead > tr > td {
+    vertical-align: middle;
+  }
+  
+  .table,
+  .table > thead > tr > th {
+    border-color: #88A1B2
+  }
+
+</style>
+
+
 <body>
 
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <div id="category">
-      <div class="container">
-        <ul class="navbar-nav mr-auto">
-          <li><a href="#">Graphics & Design</a></li>
-          <li><a href="#">Digital Marketing</a></li>
-          <li><a href="#">Video & Animation</a></li>
-          <li><a href="#">Music & Audio</a></li>
-          <li><a href="#">Programming & Tech</a></li>
-        </ul>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 sidebar">
+            {% block sidebar %}{% endblock %}
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 content">
+            {% block content %}{% endblock %}
+        </div>
       </div>
     </div>
-  </nav>
-
-  {% block content %}
-  {% endblock %}
-  <footer id="footer">
-    <div class="container">
-      <span>Sixerr App &copy; 2016</span>
-    </div>
-  </footer>
 
 </body>
 </html>

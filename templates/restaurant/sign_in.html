@@ -1,14 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'base_signup.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
 
-{% block title %}
-  Market Place
-{% endblock title %}
+{% block title %}Sign In{% endblock %}
+{% block heading %}Restaurant - Sign In{% endblock %}
 
 {% block content %}
-  <form method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Sign In</button>
-  </form>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form|crispy }}
+     
+      <button class="btn btn-primary pull-right" type="submit">Sign In</button>
+    </form>
 {% endblock %}
-

@@ -1,18 +1,18 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
+{% extends 'base_signup.html' %}
+{% load crispy_forms_tags %}
 
-{% block title %}
-  Market Place
-{% endblock title %}
+{% block title %}Sign In{% endblock %}
+{% block heading %}Restaurant - Sign In{% endblock %}
 
 {% block content %}
 
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ user_form }}
-    {{ restaurant_form }}
-    <button type="submit">Sign Up </button>
-  </form>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form|crispy }}
+        {{ restaurant_form|crispy }}
+  
+        <button class="btn btn-primary pull-right" type="submit">Sign Up</button>
+      </form> 
+  
 
 {% endblock %}
-
