@@ -7,7 +7,7 @@ from . import forms
 from . import models
 
 def home(request):
-  return redirect(restaurant_home)
+  return redirect('restaurant-order')
 
 """Restaurant & Account"""
 
