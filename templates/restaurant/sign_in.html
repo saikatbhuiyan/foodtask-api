@@ -1,5 +1,4 @@
 {% extends 'base_signup.html' %}
-{% load crispy_forms_tags %}
 {% load bootstrap4 %}
 
 {% block title %}Sign In{% endblock %}
@@ -8,8 +7,8 @@
 {% block content %}
     <form method="POST">
       {% csrf_token %}
-      {{ form|crispy }}
-     
-      <button class="btn btn-primary pull-right" type="submit">Sign In</button>
+      {% bootstrap_form form %}
+      <button type="submit" class="btn btn-pink pull-right">Sign In</button>
     </form>
+    <a href="{% url 'restaurant-sign-up' %}">Become a Restaurant</a>
 {% endblock %}

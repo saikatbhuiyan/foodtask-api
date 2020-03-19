@@ -122,3 +122,11 @@ body {
 .table > thead > tr > th {
   border-color: #88A1B2
 }
+
+#add_meal{
+  padding-left: 20%;
+}
+
+#account{
+  padding-left: 20%;
+}

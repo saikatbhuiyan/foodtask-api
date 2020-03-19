@@ -5,7 +5,7 @@ body {
 }
 
 .bg-blue {
-  background-color: #3F3F63 !important;
+  background-color: #3F3F63;
 }
 
 .bg-gray {
@@ -121,4 +121,15 @@ body {
 .table,
 .table > thead > tr > th {
   border-color: #88A1B2
+}
+
+
+#add_meal{
+  padding-right: 20%;
+}
+
+#account{
+  padding-right: 20%;
+  background-color: #e3e3ec;
+  margin: 10px;
 }

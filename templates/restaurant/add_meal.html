@@ -1,13 +1,15 @@
 {% extends 'restaurant/base.html' %}
 {% load bootstrap4 %}
 
-{% block content %}
+{% block page %}
     <style>
-        #meal{
-            padding-left: 20%;
+        #add_meal{
+            {% comment %} padding-left: 20%; {% endcomment %}
+            background-color:  #e3e3ec;
+            margin-left: 20%;
         }
     </style>
-    <div class="col-lg-offset-4 col-lg-8" id='meal'>
+    <div class="col-lg-offset-2 col-lg-8" id="add_meal">
         <div class="panel">
             <div class="panel-heading bg-blue">
                 <h4 class="panel-title text-center text-white">

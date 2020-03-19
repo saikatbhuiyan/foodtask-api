@@ -107,13 +107,18 @@ def restaurant_edit_meal(request, meal_id):
         "form": form
     })
 
-
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_order(request):
-    return render(request, 'restaurant/order.html', {})
+    if request.method == "POST":
+        order = models.Order.objects.get(id = request.POST["id"], restaurant = request.user.restaurant)
 
+        if order.status == models.Order.COOKING:
+            order.status = models.Order.READY
+            order.save()
+
+    orders = models.Order.objects.filter(restaurant = request.user.restaurant).order_by("-id")
+    return render(request, 'restaurant/order.html', {"orders": orders})
 
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_report(request):
     return render(request, 'restaurant/report.html', {})
-
