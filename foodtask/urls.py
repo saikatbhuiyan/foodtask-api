@@ -34,5 +34,5 @@ urlpatterns = [
     path('api/social/', include('rest_framework_social_oauth2.urls')),
     # /convert-token (sign in/ sign up)
     # /revoke-token (sign out)
-    path('api/customer/', include('foodtaskapp.api.urls')),
+    path('api/', include('foodtaskapp.api.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
